@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { FadeIn } from "@/components/ui/fade-in"
 import { cn } from "@/lib/utils"
 
 const footerNav = [
@@ -32,7 +33,7 @@ export function Footer() {
       aria-label="Site footer"
     >
       <div className="flex min-h-0 flex-1 flex-col justify-center px-6 py-10 sm:py-14">
-        <div className="mx-auto flex w-full max-w-xl flex-col items-center text-center">
+        <FadeIn className="mx-auto flex w-full max-w-xl flex-col items-center text-center">
           <p className="text-[22px] leading-[1.2] font-medium tracking-[-0.3px] text-foreground">
             Mapa
           </p>
@@ -51,18 +52,20 @@ export function Footer() {
           >
             <a href="#hero-map-text">Start exploring</a>
           </Button>
-        </div>
+        </FadeIn>
 
-        <nav
-          aria-label="On this page"
-          className="mx-auto mt-12 flex w-full max-w-xl flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-14 sm:gap-x-5"
-        >
-          {footerNav.map((item) => (
-            <a key={item.href} href={item.href} className={navLinkClassName}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <FadeIn delay={0.15}>
+          <nav
+            aria-label="On this page"
+            className="mx-auto mt-12 flex w-full max-w-xl flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-14 sm:gap-x-5"
+          >
+            {footerNav.map((item) => (
+              <a key={item.href} href={item.href} className={navLinkClassName}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </FadeIn>
       </div>
 
       <div className="shrink-0 px-6 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 text-center sm:pb-4">

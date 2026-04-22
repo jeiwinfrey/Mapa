@@ -1,6 +1,7 @@
 import IconOpenQuote1 from "@central-icons-react/round-filled-radius-3-stroke-2/IconOpenQuote1"
 import IconStar from "@central-icons-react/round-filled-radius-3-stroke-2/IconStar"
 
+import { FadeIn } from "@/components/ui/fade-in"
 import { cn } from "@/lib/utils"
 
 const testimonials = [
@@ -76,7 +77,8 @@ export function Testimonials() {
       </div>
 
       <div className="relative mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start lg:gap-14 xl:gap-20">
-        <header className="mx-auto max-w-xl text-center lg:sticky lg:top-28 lg:mx-0 lg:max-w-[26rem] lg:pt-2 lg:text-left">
+        <FadeIn from="left" className="mx-auto max-w-xl text-center lg:sticky lg:top-28 lg:mx-0 lg:max-w-[26rem] lg:pt-2 lg:text-left">
+          <header>
           <h2
             id="testimonials-heading"
             className="text-balance text-[clamp(2rem,5.5vw,3.5rem)] font-medium leading-[1.06] tracking-[-0.045em] text-foreground"
@@ -116,91 +118,95 @@ export function Testimonials() {
               ))}
             </dl>
           </div>
-        </header>
+          </header>
+        </FadeIn>
 
         <div className="flex flex-col gap-4">
-          <article
-            className={cn(
-              "group relative rounded-[22px] p-6 sm:p-8",
-              glassSurface,
-              "transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5",
-            )}
-          >
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div
-                className={cn(
-                  "flex size-11 items-center justify-center rounded-2xl sm:size-12",
-                  featured.quoteTint,
-                )}
-              >
-                <IconOpenQuote1 size={22} className="opacity-95" aria-hidden />
+          <FadeIn delay={0.1}>
+            <article
+              className={cn(
+                "group relative rounded-[22px] p-6 sm:p-8",
+                glassSurface,
+                "transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5",
+              )}
+            >
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div
+                  className={cn(
+                    "flex size-11 items-center justify-center rounded-2xl sm:size-12",
+                    featured.quoteTint,
+                  )}
+                >
+                  <IconOpenQuote1 size={22} className="opacity-95" aria-hidden />
+                </div>
+                <StarRow size={16} className="opacity-95" />
               </div>
-              <StarRow size={16} className="opacity-95" />
-            </div>
 
-            <blockquote className="mt-6 sm:mt-8">
-              <p className="max-w-prose text-pretty text-[clamp(1.125rem,2.8vw,1.5rem)] font-medium leading-[1.35] tracking-[-0.02em] text-foreground">
-                {featured.quote}
-              </p>
-            </blockquote>
+              <blockquote className="mt-6 sm:mt-8">
+                <p className="max-w-prose text-pretty text-[clamp(1.125rem,2.8vw,1.5rem)] font-medium leading-[1.35] tracking-[-0.02em] text-foreground">
+                  {featured.quote}
+                </p>
+              </blockquote>
 
-            <footer className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
-              <div
-                className={cn(
-                  "flex size-11 items-center justify-center rounded-full text-[14px] font-semibold sm:size-12 sm:text-[15px]",
-                  featured.accent,
-                )}
-              >
-                {featured.initials}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-[15px] font-semibold leading-tight tracking-[-0.01em] text-foreground sm:text-[16px]">
-                  {featured.name}
-                </p>
-                <p className="mt-1 text-[13px] text-muted-foreground">
-                  {featured.detail}
-                </p>
-              </div>
-            </footer>
-          </article>
+              <footer className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10">
+                <div
+                  className={cn(
+                    "flex size-11 items-center justify-center rounded-full text-[14px] font-semibold sm:size-12 sm:text-[15px]",
+                    featured.accent,
+                  )}
+                >
+                  {featured.initials}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[15px] font-semibold leading-tight tracking-[-0.01em] text-foreground sm:text-[16px]">
+                    {featured.name}
+                  </p>
+                  <p className="mt-1 text-[13px] text-muted-foreground">
+                    {featured.detail}
+                  </p>
+                </div>
+              </footer>
+            </article>
+          </FadeIn>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {rest.map((testimonial) => (
-              <article
-                key={testimonial.name}
-                className={cn(
-                  "flex h-full flex-col rounded-[22px] p-5 sm:p-6",
-                  glassSurface,
-                  "transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5",
-                )}
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div
-                    className={cn(
-                      "flex size-10 items-center justify-center rounded-full text-[13px] font-semibold sm:size-11 sm:text-[14px]",
-                      testimonial.accent,
-                    )}
-                  >
-                    {testimonial.initials}
+            {rest.map((testimonial, i) => (
+              <FadeIn key={testimonial.name} delay={0.1 + i * 0.1}>
+                <article
+                  className={cn(
+                    "flex h-full flex-col rounded-[22px] p-5 sm:p-6",
+                    glassSurface,
+                    "transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5",
+                  )}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div
+                      className={cn(
+                        "flex size-10 items-center justify-center rounded-full text-[13px] font-semibold sm:size-11 sm:text-[14px]",
+                        testimonial.accent,
+                      )}
+                    >
+                      {testimonial.initials}
+                    </div>
+                    <StarRow size={14} className="opacity-90" />
                   </div>
-                  <StarRow size={14} className="opacity-90" />
-                </div>
 
-                <blockquote className="mt-5 flex flex-1 flex-col sm:mt-6">
-                  <p className="text-pretty text-[16px] font-medium leading-[1.4] tracking-[-0.015em] text-foreground sm:text-[17px]">
-                    {testimonial.quote}
-                  </p>
-                </blockquote>
+                  <blockquote className="mt-5 flex flex-1 flex-col sm:mt-6">
+                    <p className="text-pretty text-[16px] font-medium leading-[1.4] tracking-[-0.015em] text-foreground sm:text-[17px]">
+                      {testimonial.quote}
+                    </p>
+                  </blockquote>
 
-                <footer className="mt-6 pt-1">
-                  <p className="text-[14px] font-semibold leading-tight text-foreground sm:text-[15px]">
-                    {testimonial.name}
-                  </p>
-                  <p className="mt-1 text-[12px] text-muted-foreground sm:text-[13px]">
-                    {testimonial.detail}
-                  </p>
-                </footer>
-              </article>
+                  <footer className="mt-6 pt-1">
+                    <p className="text-[14px] font-semibold leading-tight text-foreground sm:text-[15px]">
+                      {testimonial.name}
+                    </p>
+                    <p className="mt-1 text-[12px] text-muted-foreground sm:text-[13px]">
+                      {testimonial.detail}
+                    </p>
+                  </footer>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>

@@ -19,6 +19,7 @@ import IconShoppingBag1 from "@central-icons-react/round-filled-radius-3-stroke-
 import IconTicket from "@central-icons-react/round-filled-radius-3-stroke-2/IconTicket"
 import { useInView, useReducedMotion } from "motion/react"
 
+import { FadeIn } from "@/components/ui/fade-in"
 import { cn } from "@/lib/utils"
 
 const STEP_DURATION_MS = 3000
@@ -382,7 +383,7 @@ export function HowItWorks() {
       className="bg-background px-4 py-20 sm:px-6 lg:py-24"
     >
       <div className="mx-auto w-full max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
+        <FadeIn className="mx-auto max-w-3xl text-center">
           <h2
             id="trip-planned-heading"
             className="text-pretty text-[clamp(1.25rem,3.5vw,1.875rem)] leading-snug font-semibold tracking-[-0.02em] text-foreground sm:text-[clamp(1.35rem,3.2vw,2rem)] sm:leading-[1.2]"
@@ -390,7 +391,7 @@ export function HowItWorks() {
             Your trip planned in minutes—tell Mapa what feels right and get a
             day shaped your way.
           </h2>
-        </div>
+        </FadeIn>
 
         <div
           className="mt-12 flex min-h-[31rem] items-center rounded-[28px] bg-muted/50 px-5 py-16 sm:min-h-[34rem] sm:px-8 sm:py-20 lg:px-16"

@@ -14,6 +14,7 @@ import IconSunrise from "@central-icons-react/round-filled-radius-3-stroke-2/Ico
 import IconSunset from "@central-icons-react/round-filled-radius-3-stroke-2/IconSunset"
 import { motion } from "motion/react"
 
+import { FadeIn } from "@/components/ui/fade-in"
 import { cn } from "@/lib/utils"
 
 type IconComp = ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>
@@ -97,7 +98,7 @@ function FeatureCard({
   return (
     <div
       className={cn(
-        "flex flex-col items-center rounded-[24px] bg-muted/30 px-6 pb-9 pt-11 sm:px-9 sm:pb-10 sm:pt-12",
+        "flex h-full flex-col items-center rounded-[24px] bg-muted/30 px-6 pb-9 pt-11 sm:px-9 sm:pb-10 sm:pt-12",
         className,
       )}
     >
@@ -413,7 +414,7 @@ export function Features() {
       className="bg-background px-4 py-20 sm:px-6 lg:py-24"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-2xl text-center">
+        <FadeIn className="mx-auto max-w-2xl text-center">
           <h2
             id="features-heading"
             className="text-balance text-[clamp(1.65rem,4.2vw,2.5rem)] font-medium leading-[1.12] tracking-[-0.04em] text-foreground"
@@ -421,36 +422,44 @@ export function Features() {
             <span className="block">They know the sights.</span>
             <span className="mt-1.5 block">We know the experiences.</span>
           </h2>
-        </div>
+        </FadeIn>
 
         <div className="mt-14 grid gap-4 sm:mt-16 sm:gap-5 md:grid-cols-2 lg:mt-20 lg:gap-6">
-          <FeatureCard
-            title="Brief listens"
-            description="A short clip of context before you walk in"
-          >
-            <BriefListensShowcase />
-          </FeatureCard>
+          <FadeIn delay={0.05}>
+            <FeatureCard
+              title="Brief listens"
+              description="A short clip of context before you walk in"
+            >
+              <BriefListensShowcase />
+            </FeatureCard>
+          </FadeIn>
 
-          <FeatureCard
-            title="Day balance"
-            description="Depth, an even rhythm, or a fuller map—your call"
-          >
-            <DayBalanceShowcase />
-          </FeatureCard>
+          <FadeIn delay={0.15}>
+            <FeatureCard
+              title="Day balance"
+              description="Depth, an even rhythm, or a fuller map—your call"
+            >
+              <DayBalanceShowcase />
+            </FeatureCard>
+          </FadeIn>
 
-          <FeatureCard
-            title="Real-time tips"
-            description="Turn left for a courtyard, skip the crowd at noon"
-          >
-            <RealtimeTipsShowcase />
-          </FeatureCard>
+          <FadeIn delay={0.05}>
+            <FeatureCard
+              title="Real-time tips"
+              description="Turn left for a courtyard, skip the crowd at noon"
+            >
+              <RealtimeTipsShowcase />
+            </FeatureCard>
+          </FadeIn>
 
-          <FeatureCard
-            title="Chat"
-            description="Plan and adjust your trip as easily as a conversation"
-          >
-            <FeatureChatShowcase />
-          </FeatureCard>
+          <FadeIn delay={0.15}>
+            <FeatureCard
+              title="Chat"
+              description="Plan and adjust your trip as easily as a conversation"
+            >
+              <FeatureChatShowcase />
+            </FeatureCard>
+          </FadeIn>
         </div>
       </div>
     </section>
